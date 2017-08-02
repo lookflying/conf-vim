@@ -110,25 +110,17 @@ function GetJSONIndent()
     let bs = strpart('{}[]()', pos * 2, 2)
 
 
-    let pairstart = escape(bs[0], '[')
-    let pairend = escape(bs[1], ']')
+    let pairstart = escape(bs[0], '([')
+    let pairend = escape(bs[1], ')]')
     
-    if pos = 2
-        let pairstart = '\%('
-        let pairend = '\)'
-    endif
-    echom pairstart 
-    echom pairend
 
     let pairline = searchpair(pairstart, '', pairend, 'bW')
-    echom "line num" pairline
 
     if pairline > 0 
       let ind = indent(pairline)
     else
       let ind = virtcol('.') - 1
     endif
-    echom "ind = " ind
 
     echom pairstart 
     echom pairend
