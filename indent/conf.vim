@@ -113,7 +113,7 @@ function GetJSONIndent()
     let pairstart = escape(bs[0], '[')
     let pairend = escape(bs[1], ']')
     
-    if pos == 2
+    if pos = 2
         let pairstart = '\%('
         let pairend = '\)'
     endif
