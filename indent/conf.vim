@@ -120,7 +120,7 @@ function GetJSONIndent()
     else
       let ind = virtcol('.') - 1
     endif
-    echo ind
+    echom "ind = " ind
 
     return ind
   endif
