@@ -102,16 +102,23 @@ function GetJSONIndent()
 
   " If we got a closing bracket on an empty line, find its match and indent
   " according to it.
-  let col = matchend(line, '^\s*[]})]')
+  let col = matchend(line, '^\s*[)]}]')
 
   if col > 0 && !s:IsInString(v:lnum, col)
     call cursor(v:lnum, col)
-    let bs = strpart('{}[]()', stridx('}])', line[col - 1]) * 2, 2)
+    let pos = stridx('}])', line[col - 1])
+    let bs = strpart('{}[]()', pos * 2, 2)
 
-    let pairstart = escape(bs[0], '([')
+
+    let pairstart = escape(bs[0], '[')
     echom pairstart 
-    let pairend = escape(bs[1], ')]')
+    let pairend = escape(bs[1], ']')
     echom pairend
+    
+    if pos == 2
+        let pairstart = '\%('
+        let pairend = '\)'
+
     let pairline = searchpair(pairstart, '', pairend, 'bW')
     echom "line num" pairline
 
