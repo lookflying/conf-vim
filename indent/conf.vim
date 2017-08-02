@@ -113,12 +113,14 @@ function GetJSONIndent()
     let pairend = escape(bs[1], ')]')
     echom pairend
     let pairline = searchpair(pairstart, '', pairend, 'bW')
+    echom "line num" pairline
 
     if pairline > 0 
       let ind = indent(pairline)
     else
       let ind = virtcol('.') - 1
     endif
+    echo ind
 
     return ind
   endif
