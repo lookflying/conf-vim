@@ -111,14 +111,14 @@ function GetJSONIndent()
 
 
     let pairstart = escape(bs[0], '[')
-    echom pairstart 
     let pairend = escape(bs[1], ']')
-    echom pairend
     
     if pos == 2
         let pairstart = '\%('
         let pairend = '\)'
     endif
+    echom pairstart 
+    echom pairend
 
     let pairline = searchpair(pairstart, '', pairend, 'bW')
     echom "line num" pairline
