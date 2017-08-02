@@ -2,6 +2,7 @@ if exists("b:current_syntax")
     finish
 endif
 
-echom "Our syntax highlighting code will go here."
+syntax match potionComment "\v//.*$"
+highlight link potionComment Comment
 
 let b:current_syntax = "conf"
