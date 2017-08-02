@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.conf set filetype=json
+au BufNewFile,BufRead *.conf set filetype=conf
