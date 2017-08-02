@@ -130,6 +130,11 @@ function GetJSONIndent()
     endif
     echom "ind = " ind
 
+    echom pairstart 
+    echom pairend
+    echom "line num" pairline
+    echom "ind = " ind
+
     return ind
   endif
 
