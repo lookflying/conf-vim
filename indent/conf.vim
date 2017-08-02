@@ -109,6 +109,7 @@ function GetJSONIndent()
     let bs = strpart('{}[]()', stridx('}])', line[col - 1]) * 2, 2)
 
     let pairstart = escape(bs[0], '([')
+    echom pairstart 
     let pairend = escape(bs[1], ')]')
     echom pairend
     let pairline = searchpair(pairstart, '', pairend, 'bW')
