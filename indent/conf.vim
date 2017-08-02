@@ -110,6 +110,7 @@ function GetJSONIndent()
 
     let pairstart = escape(bs[0], '([')
     let pairend = escape(bs[1], ')]')
+    echom pairend
     let pairline = searchpair(pairstart, '', pairend, 'bW')
 
     if pairline > 0 
